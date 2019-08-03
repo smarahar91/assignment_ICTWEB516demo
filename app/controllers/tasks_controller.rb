@@ -1,15 +1,16 @@
-class CommentsController < ApplicationController
+
+class TasksController < ApplicationController
 
 	def create
-		@post = Post.find(params[:post_id])
-	 	@comment = @post.comments.create(params[:comment].permit(:name, :comment))
-		redirect_to post_path(@post)	
+		@listTask = ListTask.find(params[:listTask_id])
+	 	@task = @listTask.tasks.create(params[:task].permit(:name, :comment))
+		redirect_to listTask_path(@listTask)	
 	end
 
 	def destroy
-		@post = Post.find(params[:post_id])
-		@comment = @post.comments.find(params[:id])
-		@comment.destroy
-		redirect_to post_path(@post)
+		@listTask = ListTask.find(params[:listTask_id])
+		@task = @listTask.tasks.find(params[:id])
+		@task.destroy
+		redirect_to listTask_path(@task)
 	end
 end
