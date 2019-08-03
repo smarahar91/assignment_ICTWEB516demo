@@ -1,6 +1,5 @@
 class ListTaskController < ApplicationController
-	 # before_action :find_post, only: [:show, :update, :edit, :destroy]
-
+	 
 	def index
 		@listTasks = ListTask.all.order("created_at DESC")
 	end
@@ -49,8 +48,6 @@ class ListTaskController < ApplicationController
 		params.require(:listTask).permit(:title, :content)
 	end
 
-	# def find_post
-	# 	@post = Post.find(params[:id])
-	# end
+	
 
 end
